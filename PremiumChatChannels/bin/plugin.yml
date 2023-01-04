@@ -1,0 +1,12 @@
+name: SoaromaCH-Premium
+version: 0.0.4
+description: Chat Channel Plugin
+author: Korbsti
+main: me.korbsti.soaromach.PremiumChatChannels
+api-version: 1.18
+softdepend: [PlaceholderAPI, mcMMO, InteractiveChat, DiscordSRV]
+commands:
+   ch:
+   chreload:
+   chlist:
+   chspy:

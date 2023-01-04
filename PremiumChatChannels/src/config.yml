@@ -1,0 +1,174 @@
+# -------------------
+# SoaromaCH-Premium
+# Version 0.0.4
+# -------------------
+# To switch back to default chat, the command would be /ch global
+# This takes the variable from defaultGlobal and that would be the "global" channel
+# You can change that in any way you want too
+# Anyone with the channel permission will be able to recieve messages as well as send messages to that specific channel
+# -------------------
+# useMySQLDatabase: false
+# database: 'jdbc:mysql://localhost:3306/databasename'
+# username: 'root'
+# password: ''
+# To use a hex colour code within a format do &#{code}
+# NOTE this ONLY works with mcMMO, mcMMO deals with the party system
+# partyFormat: '&5&lServer >> {party-name} {player} &8--> &3{message}'
+# partyDiscordFormat: '&5&lServer >> {party-name} {player} -> {message}'
+# partyID: ''
+
+# To create another channel the format would be 
+# channels:
+#  name:
+#    defaultGlobal: global
+#    channelUponJoining: global
+#    defaultGlobalPermission: ch.defaultGlobal.use
+#    enableGlobalMessageFormat: false
+#    defaultGlobalMessageFormat: '&8{&2Global&8}&f {player} &8--> &3{message}'
+#    globalChannelID: ''
+#    toGlobalChannelDiscord: ''
+#    enableArgsAsMessage: false
+#    testChannel:
+#      permission: ch.use.testChannel
+#      spyPermission: ch.spy.testChannel
+#      prefix: '&8[&4testChannel&8]'
+#      sendRegardlessOfCurrentChannel: true
+#      enableDistanceMessage: false
+#      distanceMessage: 25
+#      messageFormat: '{channel-prefix} {player} &8--> &#8901f9{message}'
+#      toDiscordFormat: '{channel-prefix} {player} &8--> &#8901f9{message}'
+#      fromDiscordFormat: '&cDiscord >> {role} &5{user} &8--> &#8901f9{message}'
+#      chlistDisplayAll: true
+#      channelExists: true
+#      channelID: ''
+#    Staff:
+#      permission: ch.use.testChannel
+#      spyPermission: ch.spy.testChannel
+#      prefix: '&8[&4testChannel&8]'
+#      sendRegardlessOfCurrentChannel: true
+#      enableDistanceMessage: false
+#      distanceMessage: 25
+#      messageFormat: '{channel-prefix} {player} &8--> &#8901f9{message}'
+#      toDiscordFormat: '{channel-prefix} {player} &8--> &#8901f9{message}'
+#      fromDiscordFormat: '&cDiscord >> {role} &5{user} &#8--> &8901f9{message}'
+#      chlistDisplayAll: true
+#      channelExists: true
+#      channelID: ''
+#    Local:
+#      permission: ch.use.local
+#      spyPermission: ch.spy.local
+#      prefix: '&8[&4Local&8]'
+#      sendRegardlessOfCurrentChannel: true
+#      enableDistanceMessage: false
+#      distanceMessage: 25
+#      messageFormat: '{channel-prefix} {player} &8--> &#8901f9{message}'
+#      toDiscordFormat: '{channel-prefix} {player} &8--> &#8901f9{message}'
+#      fromDiscordFormat: '&cDiscord >> {role} &5{user} &8--> &#8901f9{message}'
+#      chlistDisplayAll: true
+#      channelExists: true
+#      channelID: ''
+      
+# -------------------
+# channelUponJoining is the channel a player is put into upon joining
+# -------------------
+# enableGlobalMessageFormat meaning if true, then enable the formatting for 'global'/default chat
+# defaultGlobalMessageFormat is the message format for regular chat
+# -------------------
+# enableDistanceMessage means if TRUE then send the message to the player within the channel in X amount of blocks
+# distanceMessage is the amount of blocks
+# -------------------
+# chlistDisplayAll - if TRUE, then anyone doing /chlist will be able to see the channel, if FALSE then only people who has permission for that channel can
+# see that the specific channel exists when doing /chlist
+# channelExists - if the channel exists or not
+# -------------------
+# To switch to that specific channel, the command would be /ch (channel name), for example /ch testChannel
+# To switch back to normal chat, type /ch global
+# The permission to switch back to normal chat would be defaultGlobalPermission
+# -------------------
+# enableArgsAsMessage is when a user types /ch testChannel {message} it will send a message to that channnel without switching to that channel
+# -------------------
+# set channelID as the discord channelID
+# set globalChannelID to discord srvs global channel ID
+# -------------------
+# The variable sendRegardlessOfCurrentChannel means that if two players has the same permission for the channel
+# and one player is in the current channel while the other is not in the current channel
+# if this variable is FALSE it will only send messages to players whose channel and permission is the same
+# The only disclaimers is that a channel cannot be called "defaultGlobal", "defaultGlobalPermission" and it cannot end with ".permission" or ".prefix"
+# or start with "channels.name." or anything that the config files path ends with
+
+channel-list: '&5&lServer >> Known channels are: {channels}'
+reloaded: '&5&lServer >> Reloaded Configuration'
+invalidArgs: '&5&lServer >> Invalid arguments!'
+noPerm: '&5&lServer >> No Permission'
+invalidChannel: '&5&lServer >> Invalid channel!'
+switchedChannel: '&5&lServer >> Channel set to &2{channel-name}'
+turnSpyOff: '&5&lServer >> No longer spying on the &2{channel-name}'
+turnSpyOn: '&5&lServer >> Now spying on the channel &2{channel-name}'
+cannotSpyGlobal: '&5&lServer >> Cannot spy on the GLOBAL channel... since its well... global'
+partyFalse: '&5&lServer >> No longer talking in party'
+partyTrue: '&5&lServer >> Now talking in party'
+notInParty: '&5&lServer >> Your message sends to no one... as you are not in a party...'
+mySQLLoading: '&5&lServer >> We are still storing your data to the database please wait...'
+reloadNotRec: '&5&lServer >> Using /chreload is highly not recommended to do, please restart the server'
+
+
+useMySQLDatabase: false
+database: 'jdbc:mysql://localhost:3306/databasename'
+username: 'root'
+password: ''
+
+# NOTE this ONLY works with mcMMO, mcMMO deals with the party system
+partyFormat: '&5&lServer >> {party-name} {player} &8--> &3{message}'
+partyDiscordFormat: '&5&lServer >> {party-name} {player} -> {message}'
+partyID: ''
+
+channels:
+  name:
+    defaultGlobal: global
+    channelUponJoining: global
+    defaultGlobalPermission: ch.defaultGlobal.use
+    enableGlobalMessageFormat: false
+    defaultGlobalMessageFormat: '&8{&2Global&8}&f {player} &8--> &3{message}'
+    globalChannelID: ''
+    toGlobalChannelDiscord: ''
+    enableArgsAsMessage: false
+    testChannel:
+      permission: ch.use.testChannel
+      spyPermission: ch.spy.testChannel
+      prefix: '&8[&4testChannel&8]'
+      sendRegardlessOfCurrentChannel: true
+      enableDistanceMessage: false
+      distanceMessage: 25
+      messageFormat: '{channel-prefix} {player} &8--> &#8901f9{message}'
+      toDiscordFormat: '{channel-prefix} {player} &8--> &#8901f9{message}'
+      fromDiscordFormat: '&cDiscord >> {role} &5{user} &8--> &#8901f9{message}'
+      chlistDisplayAll: true
+      channelExists: true
+      channelID: ''
+    Staff:
+      permission: ch.use.staff
+      spyPermission: ch.spy.staff
+      prefix: '&8[&4Staff&8]'
+      sendRegardlessOfCurrentChannel: true
+      enableDistanceMessage: false
+      distanceMessage: 25
+      messageFormat: '{channel-prefix} {player} &8--> &#8901f9{message}'
+      toDiscordFormat: '{channel-prefix} {player} &8--> &#8901f9{message}'
+      fromDiscordFormat: '&cDiscord >> {role} &5{user} &8--> &#8901f9{message}'
+      chlistDisplayAll: true
+      channelExists: true
+      channelID: ''
+    Local:
+      permission: ch.use.local
+      spyPermission: ch.spy.local
+      prefix: '&8[&4Local&8]'
+      sendRegardlessOfCurrentChannel: true
+      enableDistanceMessage: true
+      distanceMessage: 50
+      messageFormat: '{channel-prefix} {player} &8--> &#8901f9{message}'
+      toDiscordFormat: '{channel-prefix} {player} &8--> &#8901f9{message}'
+      fromDiscordFormat: '&cDiscord >> {role} &5{user} &8--> &#8901f9{message}'
+      chlistDisplayAll: true
+      channelExists: true
+      channelID: ''
+      
